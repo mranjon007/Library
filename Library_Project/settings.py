@@ -58,8 +58,10 @@ ROOT_URLCONF = 'Library_Project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+        ],
+        'APP_DIRS': True,  # if it is true then django search for templates in app directory also.
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',

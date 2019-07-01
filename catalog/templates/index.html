@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+
+{% block title %}
+    <title>{{ title }}</title>
+{% endblock %}
+
+{% block content %}
+    <h1>Local library Home</h1>
+    <p>Welcome to local library</p>
+    <h2>Dynamic Content</h2>
+    <p>The library has the following records count: </p>
+
+    <ul>
+    <li><strong>Books: </strong>{{ num_books }}</li>
+    <li><strong>Copies: </strong>{{ num_instances }}</li>
+    <li><strong>Copies Available: </strong>{{ num_instances_available }}</li>
+    <li><strong>Authors: </strong>{{ num_author }}</li>
+    <li><strong>Book of Math Genre: </strong>{{ num_books_of_math_genre }}</li>
+    </ul>
+
+{% endblock %}
