@@ -1,0 +1,22 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+
+    {% if bookinstance_list %}
+        {% if perms.catalog.can_mark_returned %}
+            <ul>
+            {% for bookinst in bookinstance_list %}
+                <li class="{% if bookinst.is_overdue %}text-danger{% endif %}"><a href="{{ bookinst.book.get_absolute_url }}">
+                    {{ bookinst.book.title }}</a>
+                {{ bookinst.due_back }}-{{ bookinst.borrower.get_full_name }}</li>
+
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>User is not athorized to see this all borrowed page</p>
+        {% endif %}
+    {% else %}
+        <p>There is no borrowed book in the Library</p>
+    {% endif %}
+
+{% endblock %}
